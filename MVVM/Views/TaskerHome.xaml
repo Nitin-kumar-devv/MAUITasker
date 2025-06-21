@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTasker.MVVM.Views.TaskerHome"
+              x:Name="TaskerPage"
+             BackgroundColor="#f5f7fa">
+
+    <Grid Margin="15" RowDefinitions=".1*,.3*,.6*">
+        <Label Text="My Tasks" StyleClass="Header,DarkBlue"/>
+        
+        <Grid Grid.Row="1" RowDefinitions=".2*,.8*">
+            <Label Text="CATEGORIES" StyleClass="LightBlue,SubHeader"/>
+            <CollectionView Grid.Row="1" ItemsSource="{Binding CategoryList}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+
+                        <Grid Padding="10" StyleClass="CategoryStyle">
+                            <VerticalStackLayout Padding="15" Spacing="10">
+                                <Label StyleClass="LightBlue" Text="{Binding PendingTasks,StringFormat='{0} Tasks Pending'}"/>
+                                <Label StyleClass="DarkBlue,CardTitle" Text="{Binding CategoryName}"/>
+                                <ProgressBar Progress="{Binding Percentage}" ProgressColor="{Binding Color}"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <Grid Grid.Row="2" RowDefinitions=".2*,.8*">
+            <Label StyleClass="LightBlue,SubHeader" Text="PENDING TASKS"/>
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Tasks}" >
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="7"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate >
+                    <DataTemplate >
+                        <Frame StyleClass="TaskListStyle">
+                            <HorizontalStackLayout>
+                                <CheckBox x:Name="CheckBoxRef"
+                                          CheckedChanged="CheckBoxRef_CheckedChanged"
+                                          IsChecked="{Binding Completed}"
+                                          Color="{Binding TaskColor}"
+                                          StyleClass="lightBlue"/>
+
+                                <Label Text="{Binding TaskName }" StyleClass="LightBlue" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding Source={x:Reference CheckBoxRef}, Path=IsChecked}"
+                                                     Value="True">
+                                            <Setter Property="Text" Value="{Binding TaskName, StringFormat='{0} - Completed'}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Button Grid.Row="2"
+                Text="+"
+                Clicked="Button_Clicked"
+                StyleClass="ButonStyle"
+                />
+
+
+    </Grid>
+</ContentPage>

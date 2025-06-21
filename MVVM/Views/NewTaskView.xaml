@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTasker.MVVM.Views.NewTaskView"
+             BackgroundColor="#f5f7fa"
+             >
+    <Grid RowDefinitions=".2*,.7*,.1*">
+        <Entry Placeholder="Enter New Task"
+               Text="{Binding Task}"
+               StyleClass="Task,LightBlueEntry"
+          
+               />
+        <CollectionView  Grid.Row="1"
+                         Margin="15"
+                         ItemsSource="{Binding Categories}">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="7"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame StyleClass="TaskListStyle">
+                        <RadioButton Content="{Binding CategoryName}" GroupName="Category" IsChecked="{Binding IsSelected}" TextColor="#212B4F"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            </CollectionView>
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End" Grid.Row="1" Spacing="7">
+                <Button Text="Add Task" StyleClass="LightBlue" Clicked="AddTaskClicked"/>
+                <Button Text="Add Category" StyleClass="LightBlue" Clicked="AddCategoryClicked"/>
+            </HorizontalStackLayout>
+
+    </Grid>
+</ContentPage>

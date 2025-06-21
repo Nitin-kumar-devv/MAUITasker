@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             >
+    <Color x:Key="DarkBlue">#212B4F</Color>
+    <Color x:Key="LightBlue">#8A8BA6</Color>
+
+    <Style Class="DarkBlue" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
+    </Style>
+
+    <Style Class="LightBlue" TargetType="Label">
+        
+        <Setter Property="TextColor" Value="{StaticResource LightBlue}"/>
+    </Style>
+     
+    <Style Class="LightBlueEntry" TargetType="Entry">
+        <Setter Property="TextColor" Value="{StaticResource LightBlue}"/>
+        <Setter Property="Margin" Value="25,0,25,0"/>
+        <Setter Property="BackgroundColor" Value="#ffffff"/>
+    </Style>
+    
+
+    <Style Class="Header" TargetType="Label">
+        <Setter Property="FontSize" Value="Title"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+    
+    <Style Class="SubHeader" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+    
+    <Style Class="CardTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style Class="CategoryStyle" TargetType="Grid" >
+        <Setter Property="BackgroundColor" Value="#ffffff"/>
+        <Setter Property="WidthRequest" Value="200"/>
+    </Style>
+    
+    <Style Class="TaskListStyle" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="#ffffff"/>
+        <Setter Property="BorderColor" Value="Transparent"/>
+    </Style>
+
+    <Style Class="Task" TargetType="Entry">
+        <Setter Property="FontSize" Value="Large"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="PlaceholderColor" Value="{StaticResource LightBlue}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <EllipseGeometry x:Key="round"
+                     Center="50,50"
+                     RadiusX="30"
+                     RadiusY="30"
+                     />
+    
+    <Style Class="ButonStyle" TargetType="Button">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="Large"/>
+        <Setter Property="HeightRequest" Value="100"/>
+        <Setter Property="WidthRequest" Value="100"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="VerticalOptions" Value="End"/>
+        <Setter Property="Clip" Value="{StaticResource round}"/>
+
+    </Style>
+</ResourceDictionary>

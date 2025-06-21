@@ -1,0 +1,65 @@
+# Ignore the Visual Studio specific folders and files
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+usersecrets/
+
+# Build directories
+bin/
+obj/
+
+# .NET-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# VS for Mac specific
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# macOS specific
+.DS_Store
+
+# Android
+*.apk
+*.ap_ 
+*.dex
+*.class
+bin/
+obj/
+
+# iOS specific
+*.app
+*.ipa
+*.dSYM/
+bin/
+obj/
+
+# macOS specific
+*.app/
+bin/
+obj/
+
+# Test results
+TestResults/
+
+# JetBrains Rider specific
+.idea/
+
+# ASP.NET Core
+project.lock.json
+artifacts/
+
+# Generated files
+Generated/
+
+# Coverage files
+coverage/
